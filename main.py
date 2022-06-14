@@ -4,7 +4,7 @@ from fake_headers import Headers
 url = 'https://habr.com/ru/all/'
 
 HEADERS = Headers(os="win", headers=True).generate()
-KEYWORDS = ['дизайн', 'фото', 'web', 'python']
+KEYWORDS = ['дизайн', 'мой', 'web', 'python']
 
 req = requests.get(url, headers=HEADERS)
 soup = BeautifulSoup(req.text, 'html.parser')
@@ -18,7 +18,8 @@ for art in arts:
 
     for key in KEYWORDS:
         if (key.lower() in title.lower()) or (key.lower() in prev_text.lower()):
-            print(f'Дата: {date} - Заголовок: {title} - Ссылка: {url}')
+
+            print(f'Дата: {date} - Заголовок: {title} - Ссылка: {url}{urls}')
 
 
 
